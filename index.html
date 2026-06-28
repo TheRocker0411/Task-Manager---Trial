@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager - Stay Organized</title>
+    <meta name="description" content="A beautiful and dynamic task manager to help you stay organized and productive.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Boxicons for icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+    
+    <main class="app-container">
+        <header class="app-header">
+            <div>
+                <h1 class="app-title">Hello, User 👋</h1>
+                <p class="app-subtitle" id="current-date">Let's get things done.</p>
+            </div>
+            <div class="header-stats">
+                <div class="stat">
+                    <span class="stat-value" id="stat-completed">0</span>
+                    <span class="stat-label">Completed</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value" id="stat-total">0</span>
+                    <span class="stat-label">Total Tasks</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="input-container glass-panel">
+            <input type="text" id="task-input" placeholder="What do you need to do?" autocomplete="off" />
+            <button id="add-task-btn" class="btn-primary" aria-label="Add Task">
+                <i class='bx bx-plus'></i> Add
+            </button>
+        </div>
+
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="active">Active</button>
+            <button class="filter-btn" data-filter="completed">Completed</button>
+        </div>
+
+        <div class="tasks-container glass-panel">
+            <ul id="task-list" class="task-list">
+                <!-- Tasks will be injected here via JS -->
+            </ul>
+            
+            <div id="empty-state" class="empty-state hidden">
+                <i class='bx bx-task'></i>
+                <p>No tasks found. Time to relax or add a new one!</p>
+            </div>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
