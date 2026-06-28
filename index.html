@@ -40,25 +40,48 @@
 
         <div class="input-container glass-panel">
             <input type="text" id="task-input" placeholder="What do you need to do?" autocomplete="off" />
+            <input type="date" id="task-due-date" class="date-picker" aria-label="Due Date" />
             <button id="add-task-btn" class="btn-primary" aria-label="Add Task">
                 <i class='bx bx-plus'></i> Add
             </button>
         </div>
 
-        <div class="filters">
-            <button class="filter-btn active" data-filter="all">All</button>
-            <button class="filter-btn" data-filter="active">Active</button>
-            <button class="filter-btn" data-filter="completed">Completed</button>
+        <div class="controls-container">
+            <div class="view-toggle">
+                <button class="toggle-btn active" data-view="list"><i class='bx bx-list-ul'></i> List</button>
+                <button class="toggle-btn" data-view="calendar"><i class='bx bx-calendar'></i> Calendar</button>
+            </div>
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="active">Active</button>
+                <button class="filter-btn" data-filter="completed">Completed</button>
+            </div>
         </div>
 
         <div class="tasks-container glass-panel">
-            <ul id="task-list" class="task-list">
-                <!-- Tasks will be injected here via JS -->
-            </ul>
-            
-            <div id="empty-state" class="empty-state hidden">
-                <i class='bx bx-task'></i>
-                <p>No tasks found. Time to relax or add a new one!</p>
+            <div id="list-view">
+                <ul id="task-list" class="task-list">
+                    <!-- Tasks will be injected here via JS -->
+                </ul>
+                
+                <div id="empty-state" class="empty-state hidden">
+                    <i class='bx bx-task'></i>
+                    <p>No tasks found. Time to relax or add a new one!</p>
+                </div>
+            </div>
+
+            <div id="calendar-view" class="hidden">
+                <div class="calendar-header">
+                    <button id="prev-month" class="action-btn"><i class='bx bx-chevron-left'></i></button>
+                    <h2 id="calendar-month-year">Month Year</h2>
+                    <button id="next-month" class="action-btn"><i class='bx bx-chevron-right'></i></button>
+                </div>
+                <div class="calendar-weekdays">
+                    <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+                </div>
+                <div id="calendar-grid" class="calendar-grid">
+                    <!-- Calendar days injected via JS -->
+                </div>
             </div>
         </div>
     </main>
